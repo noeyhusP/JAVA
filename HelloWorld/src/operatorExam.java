@@ -1,4 +1,4 @@
-public class operatorExam {
+public class OperatorExam {
     public static void main(String[] args) {
         // 1. 사칙연산 지원 됨
         // 2. 단항 연산자 (전위, 후위) 지원 (++i, i++)
