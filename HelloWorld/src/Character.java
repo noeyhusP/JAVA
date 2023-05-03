@@ -5,7 +5,7 @@ public class Character {
         // '문자'를 넣기 위한 타입 (!=문자열)
         // 문자는 '' 로 감싸서 리터럴을 만듦 ("" 안 됨)
         char ch1 = 'A';
-        char ch2 = '박';
+        // char ch2 = '박';
         System.out.println(ch1); // sysout으로 자동완성 가능
 
         // 실질적으로는 문자보다는 문자열을 더 많이 씀
