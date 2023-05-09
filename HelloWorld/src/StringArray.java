@@ -53,18 +53,33 @@ public class StringArray {
             new String("950306")
         };
 
-        // 왼쪽 슈거코드
+        // 왼쪽 슈거코드 (옛날 방식, 거의 안 씀)
         String myInfo3[] = new String[]{
             new String("수현"),
             new String("부산"),
             new String("950306")
         };
 
-        // 확인
+        // for문으로 확인
         for (int i = 0; i < myInfo.length; i++)
         {
             System.out.println(myInfo[i]);
         }
 
+        // inhanced for문
+        for (String name : strArray)
+        {
+            System.out.println(name);
+        }
+
+        // inhanced for문 예시2
+        int[] scores = {80, 90, 70, 70, 80};
+        int total = 0;
+
+        for (int sc : scores)
+        {
+            total = total + sc;
+        }
+        System.out.println(total);
     }
 }

@@ -23,7 +23,7 @@ public class ControlStatement {
                 System.out.println("b = 5");
                 break;
             default :
-                System.out.println("deafult");
+                System.out.println("default");
                 break;
         }
 
