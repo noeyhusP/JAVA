@@ -1,3 +1,4 @@
+package cafe;
 public class Barista {
     
     public Coffee makeCoffee(int menuNumber)

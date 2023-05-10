@@ -1,3 +1,4 @@
+package cafe;
 public class Coffee {
     public boolean isHot;
     public boolean isMilk;

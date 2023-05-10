@@ -1,3 +1,4 @@
+package cafe;
 public class Server {
     // 역할
 

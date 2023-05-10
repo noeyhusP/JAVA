@@ -1,3 +1,4 @@
+package cafe;
 public class Menu {
     public String[] menu;
     public int[] price;

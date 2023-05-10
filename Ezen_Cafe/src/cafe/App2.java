@@ -1,3 +1,4 @@
+package cafe;
 import java.util.Scanner;
 
 public class App2 {
