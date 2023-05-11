@@ -1,4 +1,5 @@
 package thistisjava_ex;
+import java.util.Objects;
 public class Car {
     private String company;
     private String model;
@@ -26,44 +27,44 @@ public class Car {
     }
 
     // getter setter
-    public void getCompany(String company)
+    public String getCompany()
     {
-        this.company = company;
+        return this.company;
     }
 
-    public void setCompany(String company)
+    public String setCompany()
     {
-        this.company = company;
+        return this.company;
     }
 
-    public void getModel(String model)
+    public String getModel()
     {
-        this.model = model;
+        return this.model;
     }
 
-    public void setModel(String model)
+    public String setModel()
     {
-        this.model = model;
+        return this.model;
     }
 
-    public void getColor(String color)
+    public String getColor()
     {
-        this.color = color;
+        return this.color;
     }
 
-    public void setColor(String color)
+    public String setColor()
     {
-        this.color = color;
+        return this.color;
     }
 
-    public void getMaxSpeed(int maxSpeed)
+    public int getMaxSpeed()
     {
-        this.maxSpeed = maxSpeed;
+        return this.maxSpeed;
     }
 
-    public void setMaxSpeed(int maxSpeed)
+    public int setMaxSpeed()
     {
-        this.maxSpeed = maxSpeed;
+        return this.maxSpeed;
     }
 
     // public void setAll(String company, String model, String color, int maxSpeed)
