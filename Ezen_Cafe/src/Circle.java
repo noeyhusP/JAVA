@@ -20,7 +20,6 @@ public class Circle {
     // (가독성 및 변경 시 효율 올라감) 2. (= 유지보수측면)
     // final을 적재적소에 잘 사용하면 좋은 코드가 되므로 애용할 것 
 
-    
     public double getSize()
     {
         return radius * radius * Circle.pi;
