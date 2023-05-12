@@ -9,6 +9,8 @@ public class Member {
     // 기본 생성자
     public Member()
     {
+        // 자바에서 알아서 초기화 해주는 것과 동일하더라도
+        // 명시적으로 기본생성자를 만들어주는 것을 강력히 권장함
         System.out.println("Default Constructor");
         name = "";
         id = "";
