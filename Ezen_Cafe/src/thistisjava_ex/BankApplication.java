@@ -34,7 +34,7 @@ public class BankApplication {
                 deposit();
                 break;
             case 4 :
-            withdraw();
+                withdraw();
                 break;
             case 5 :
                 System.out.println("프로그램 종료");
@@ -56,7 +56,7 @@ public class BankApplication {
 
         System.out.println("계좌번호 : ");
         String accountNum = scan.next();
-        // accountNum = Integer.parseInt(accountNum);
+        // int accountNum = Integer.parseInt(inputAccountNum);
 
         System.out.println("계좌주 : ");
         String accountOwner = scan.next();
@@ -66,6 +66,7 @@ public class BankApplication {
         // initDeposit = Integer.parseInt(initDeposit);
 
         Account newAccount = new Account(accountNum, accountOwner, initDeposit);
+        newAccount.setBalance(initDeposit);
 
         for (int i = 0; i < accountArray.length; i++)
         {
@@ -87,9 +88,12 @@ public class BankApplication {
         
         for (int i = 0; i < accountArray.length; i++)
         {
-            System.out.println(accountArray[i].getAccountNum());
-            System.out.println(accountArray[i].getAccountOwner());
-            System.out.println(accountArray[i].getInitDeposit());
+            if (accountArray[i] != null)
+            {
+                System.out.printf(accountArray[i].getAccountNum()
+                + "\t" + accountArray[i].getAccountOwner() 
+                + "\t" + (accountArray[i].getBalance()) + "\n");
+            }
         }
     }
 
@@ -102,10 +106,27 @@ public class BankApplication {
         System.out.println("-------------");
 
         System.out.println("계좌번호 : ");
-        String accountNum = scan.next();
+        String accountNum2 = scan.next();
 
         System.out.println("예금액 : ");
-        String userDeposit = scan.nextLine();
+        String inputDeposit = scan.next();
+        int userDeposit = Integer.parseInt(inputDeposit);
+
+        for (int i = 0; i < accountArray.length; i++)
+        {
+            Account account = accountArray[i];
+
+            if (accountArray[i] == null)
+            {
+                break;
+            }
+
+            if (accountArray[i].getAccountNum().equals(accountNum2))
+            {
+                // account.setDeposit(userDeposit);
+                account.setBalance(account.getBalance() + userDeposit);
+            }
+        }
     }
 
     // 출금
@@ -116,10 +137,27 @@ public class BankApplication {
         System.out.println("-------------");
 
         System.out.println("계좌번호 : ");
-        String accountNum = scan.next();
+        String accountNum3 = scan.next();
 
         System.out.println("출금액 : ");
         String withdraw = scan.next();
+        int userWithdraw = Integer.parseInt(withdraw);
+
+        for (int i = 0; i < accountArray.length; i++)
+        {
+            Account account = accountArray[i];
+
+            if (accountArray[i] == null)
+            {
+                break;
+            }
+
+            if (accountArray[i].getAccountNum().equals(accountNum3))
+            {
+                // account.setWithdraw(userWithdraw);
+                account.setBalance(account.getBalance() - userWithdraw);
+            }
+        }    
 
     }
     }

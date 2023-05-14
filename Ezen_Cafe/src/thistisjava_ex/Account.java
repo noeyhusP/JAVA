@@ -15,22 +15,22 @@ public class Account {
     }
 
     // 방법 1 . void
-    // public void setBalance(int balance) {
-    //     if (balance >= MIN_BALANCE && balance <= MAX_BALANCE)
-    //         { 
-    //             this.balance = balance;
-    //         }
-    // }
+    public void setBalance(int balance) {
+        if (balance >= MIN_BALANCE && balance <= MAX_BALANCE)
+            { 
+                this.balance = balance;
+            }
+    }
 
     // 방법 2. boolean
     // void로 하는 것 보다는 정확한 방식
-    public boolean setBalance(int balance) {
-        if ((balance < MIN_BALANCE) ||  (balance > MAX_BALANCE))
-            { 
-                return false;
-            }
-        return true;
-    }
+    // public boolean setBalance(int balance) {
+    //     if ((balance < MIN_BALANCE) ||  (balance > MAX_BALANCE))
+    //         { 
+    //             return false;
+    //         }
+    //     return true;
+    // }
 
     // 방법 3. int
     // 가장 친절한 방식
@@ -53,6 +53,7 @@ public class Account {
     private String accountOwner;
     private int initDeposit;
     private int deposit;
+    private int withdraw;
 
     // 기본 생성자
     public Account()
@@ -86,20 +87,35 @@ public class Account {
         this.accountOwner = accountOwner;
     }
 
-    public int getInitDeposit() {
-        return this.initDeposit;
-    }
-
-    public void setInitDeposit(int initDeposit) {
-        this.initDeposit = initDeposit;
-    }
 
     public int getDeposit() {
-        return this.deposit + this.initDeposit;
+        return this.deposit;
     }
 
-    public void setDeposit(int deposit) {
+    public void setDeposit(int userDeposit) {
         this.deposit = deposit;
     }
+
+    public int getWithdraw() {
+        return this.withdraw;
+    }
+
+    public void setWithdraw(int userWithdraw) {
+        this.withdraw = withdraw;
+    }
+
+    // 입력받은 계좌 찾기
+    // private static Account findAccount(String accountNum2)
+    // {
+    //     for (int i = 0; i < accountArray.length; i++) {
+	// 		if (accountArray[i] == null) {
+	// 			break;
+	// 		}
+	// 		if (accountArray[i].getAccountNum().equals(accountNum2)) {
+	// 			return accountArray[i];
+	// 		}
+	// 	}
+	// 	return null;
+    // } 
 
 }
