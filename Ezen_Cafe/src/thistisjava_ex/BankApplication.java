@@ -17,7 +17,7 @@ public class BankApplication {
         System.out.println("-------------------------------------------------");
         System.out.println("1. 계좌생성 | 2. 계좌목록 | 3. 예금 | 4. 출금 | 5. 종료");
         System.out.println("-------------------------------------------------");
-        System.out.println(" > 선택 ");
+        System.out.println(" 선택 > ");
         System.out.println("-------------------------------------------------");
         menu = scan.nextInt();
         // menu = Integer.parseInt(userInput);
@@ -54,9 +54,23 @@ public class BankApplication {
         System.out.println("계좌생성");
         System.out.println("-------------");
 
-        System.out.println("계좌번호 : ");
+        System.out.printf("계좌번호 : ");
         String accountNum = scan.next();
         // int accountNum = Integer.parseInt(inputAccountNum);
+
+        // 계좌번호 중복 확인
+        for (int i = 0;  i < accountArray.length; i++)
+        {
+            if (accountArray[i] != null)
+            {
+                while (accountArray[i].getAccountNum().equals(accountNum))
+                {
+                    System.out.println("동일한 계좌가 존재합니다.");
+                    System.out.printf("계좌번호 : ");
+                    accountNum = scan.next();
+                }
+            }
+        }
 
         System.out.println("계좌주 : ");
         String accountOwner = scan.next();
@@ -108,10 +122,25 @@ public class BankApplication {
         System.out.println("계좌번호 : ");
         String accountNum2 = scan.next();
 
+        // 계좌 존재 확인
+        for (int i = 0;  i < accountArray.length; i++)
+        {
+            if (accountArray[i] != null)
+            {
+                while (!accountArray[i].getAccountNum().equals(accountNum2))
+                {
+                    System.out.println("존재하지 않는 계좌입니다.");
+                    System.out.printf("계좌번호 : ");
+                    accountNum2 = scan.next();
+                }
+            }
+        }
+
         System.out.println("예금액 : ");
         String inputDeposit = scan.next();
         int userDeposit = Integer.parseInt(inputDeposit);
 
+        // 예금
         for (int i = 0; i < accountArray.length; i++)
         {
             Account account = accountArray[i];
@@ -143,6 +172,7 @@ public class BankApplication {
         String withdraw = scan.next();
         int userWithdraw = Integer.parseInt(withdraw);
 
+        // 출금
         for (int i = 0; i < accountArray.length; i++)
         {
             Account account = accountArray[i];
