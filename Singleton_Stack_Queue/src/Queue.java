@@ -94,8 +94,37 @@ public class Queue {
 
         return dequeueData;
     }
-    
-    // public void printQueueAll()
+
+    // front와 rear사이 범위의 데이터 출력
+    // 즉, 유효한 데이터 출력
+    public void printQueue()
+    {
+        int point = front;
+        if (rear > point)
+        {
+            // 무조건 count + 1이어야 도는지 시험해보기
+            for (int i = point; i < count + 1; i++)
+            {
+                System.out.println(ar[point]);
+                point++;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < count; i++)
+            {
+                System.out.println(ar[point]);
+                point++;
+                if (point == size)
+                {
+                    point = 0;
+                }
+            }
+        }
+    }
+
+    // 데이터 출력 다른 버전으로도 만들어보기
+        // public void printQueueAll()
     // {
     //     for (int i = ar.length - 1; i >= 0; i--)
     //     {
@@ -124,31 +153,5 @@ public class Queue {
     //         index--;
     //     }
     // }
-
-    // front와 rear사이 범위의 데이터 출력
-    public void printQueue()
-    {
-        int point = front;
-        if (rear > point)
-        {
-            for (int i = point; i < count; i++)
-            {
-                System.out.println(ar[point]);
-                point++;
-            }
-        }
-        else
-        {
-            for (int i = 0; i < count; i++)
-            {
-                System.out.println(ar[point]);
-                point++;
-                if (point == size)
-                {
-                    point = 0;
-                }
-            }
-        }
-    }
 }
 

@@ -53,6 +53,10 @@ public class QueueEx {
         data = queue.dequeue();
         res = queue.enqueue(8);
         res = queue.enqueue(9);
+        
+        res = queue.enqueue(10);
+        res = queue.enqueue(11);
+        res = queue.enqueue(12);
         queue.printQueue();
         System.out.println("---------------------");
     }
