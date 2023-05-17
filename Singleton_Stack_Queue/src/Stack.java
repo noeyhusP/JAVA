@@ -8,7 +8,7 @@ public class Stack {
         // 기본 생성자
         public Stack()
         {
-            sp = 0;
+            sp = -1;
             stack = null;
             size = 0;         
         }
@@ -70,15 +70,16 @@ public class Stack {
         public int pop()
         {
             int poppedData;
+            poppedData = stack[sp];
             if (isEmpty() == false)
             {
-                stack[sp] = 0;
+                // poppedData = stack[sp];
+                // stack[sp] = 0;
                 sp--;
-                poppedData = stack[sp];
             }
             else
             {
-                poppedData = 0;
+                // poppedData = 0;
                 System.out.println("STACK-EMPTY");
             }
             return poppedData;
@@ -106,13 +107,26 @@ public class Stack {
             System.out.println("===============");
         }
 
-        // 저장된 스택 전부 프린트
+        // 저장된 스택 전부 프린트 (역순으로)
         public void printStackAll()
         {
-            for (int i = 0; i < stack.length; i++)
+            for (int i = stack.length - 1; i >= 0; i--)
             {
                 System.out.println(stack[i]);
             }
         }
+
+        // 저장된 스택 전부 프린트 (역순으로)2
+        // (수정하기)
+        // public void printStackAll()
+        // {
+        //     int count = sp;
+        //     int index = sp - 1;
+        //     for (int i = 0; i < count; i++)
+        //     {
+        //         System.out.println(stack[index]);
+        //         index--;
+        //     }
+        // }
 
 }

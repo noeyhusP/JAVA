@@ -1,14 +1,16 @@
 public class StackEx {
     public static void main(String[] args) {
-        Stack Stack = new Stack(3);
+        Stack Stack = new Stack(5);
 
         Stack.push(1);
-        // Stack.printStack();
 
         Stack.push(2);
-        // Stack.printStack();
 
         Stack.push(3);
+
+        Stack.push(4);
+
+        Stack.push(5);
         Stack.printStackAll();
 
         Stack.pop();
@@ -16,6 +18,17 @@ public class StackEx {
 
         Stack.pop();
         Stack.printPop();
+
+        Stack.pop();
+        Stack.printPop();
+
+        Stack.pop();
+        Stack.printPop();
+
+        Stack.pop();
+        Stack.printPop();
+
+        // pop이랑 printAll 수정하기
 
         // boolean result;
         // result = Stack.push(1);

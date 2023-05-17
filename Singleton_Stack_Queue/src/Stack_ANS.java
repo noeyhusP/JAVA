@@ -61,18 +61,39 @@ public class Stack_ANS {
     }
     
     // 정상인 경우 data리턴
-    // 비정상인 경우 intger의 최소값 리턴
+    // 비정상인 경우 integer의 최소값 리턴
+    // pop은 데이터를 지우는 것이 아니라 sp의 위치만을 변경하는 것
     public int pop()
     {
         if (isUnderflow())
         {
             return ERROR_STACK;
         }
+        // 순서 중요!
         sp --;
         return ar[sp];
 
     }
 
+    // sp위치를 중심으로 데이터를 프린트 해주는 함수
+    public void printStackAll()
+    {
+        int count = sp;
+        int index = sp - 1;
+        for (int i = 0; i < count; i++)
+        {
+            System.out.println(ar[index]);
+            index--;
+        }
+    }
 
+    // stack에 들어간 모든 데이터를 프린트 해주는 함수
+    public void printAll()
+    {
+        for (int i = ar.length - 1; i >= 0; i--)
+        {
+            System.out.println(ar[i]);
+        }
+    }
 
 }
