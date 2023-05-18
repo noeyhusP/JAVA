@@ -1,3 +1,5 @@
+package patient;
+
 public class Patients {
     // public final class Patients
     // 만약 내 클래스를 상속받지 못하게 하고 싶다면 final을 붙여주면 됨

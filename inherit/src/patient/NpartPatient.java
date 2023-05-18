@@ -1,3 +1,4 @@
+package patient;
 public class NpartPatient extends Patients {
     private double waist;       // 허리둘레
 

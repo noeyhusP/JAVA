@@ -1,3 +1,4 @@
+package patient;
 public class ApartPatient extends Patients {
     double eyeSight;        // 시력
 

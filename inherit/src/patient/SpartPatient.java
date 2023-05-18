@@ -1,3 +1,4 @@
+package patient;
 public class SpartPatient extends Patients {
     boolean isPregnant;     // 임신여부
 

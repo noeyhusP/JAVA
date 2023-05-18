@@ -1,3 +1,4 @@
+package patient;
 public class App {
     public static void main(String[] args) throws Exception {
         // Child ch = new Child();
@@ -11,12 +12,6 @@ public class App {
 
         // 각 소프트웨어가 필요한 공통적인 정보를 parent class에 넣고
         // 상속으로 받아와서 코드를 효율적으로 이용할 수 있음 (재활용하는 느낌으로)
-        
-        // Phone phone = new Phone();
-        // phone.bell();
-        // phone.sendVoice("안녕하세요");
-        // phone.receiveVoice("끊자");
-        // phone.hangUp();
 
         // 안과환자
         ApartPatient p1 = new ApartPatient();
