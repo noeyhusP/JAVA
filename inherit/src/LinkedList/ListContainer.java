@@ -67,6 +67,7 @@ public class ListContainer {
         }
         formerNode.next = deleteNode.next;
         deleteNode = null;   
+        nodeCount --;
         return true;
     }
 

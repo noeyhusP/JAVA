@@ -7,12 +7,15 @@ public class SingleLLApp {
         lc.insertNode(new Node(10));
         lc.insertNode(new Node(20));
         lc.insertNode(new Node(30));
+        lc.insertNode(new Node(40));
+        lc.insertNode(new Node(50));
 
         // System.out.println(lc.getNode(0));
         // lc.getNode(1);
         // lc.getNode(2);
 
-        // lc.deleteNode(0);
+        lc.deleteNode(0);
+        lc.deleteNode(0);
 
         lc.printAllNode();
     }
