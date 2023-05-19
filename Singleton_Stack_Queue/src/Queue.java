@@ -69,6 +69,9 @@ public class Queue {
         // queue배열의 rear번째 자리에 data 할당
         ar[rear] = data;
 
+        // 방법2
+        // rear = (rear + 1) % size;
+
         // rear 1 증가
         rear ++;
 
