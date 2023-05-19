@@ -66,12 +66,17 @@ public class Queue {
         {
             return false;
         }
+        // queue배열의 rear번째 자리에 data 할당
         ar[rear] = data;
+
+        // rear 1 증가
         rear ++;
 
+        // rear pointer가 size와 같아지면 다시 0으로 복귀
         if (rear == size)
         rear = 0;
 
+        // 유효한 data count는 1 증가
         count ++;
 
         return true;
@@ -84,14 +89,20 @@ public class Queue {
         {
             return ERROR_QUEUE;
         }
+        // dequeue하는 값을 반환할 수 있도록 변수 만들어서 값 넣어줌
         int dequeueData = ar[front];
 
+        // front 1 증가
         front ++;
+
+        // 유효한 data count는 1 감소
         count --;
 
+        // front pointer가 size와 같아지면 다시 0으로 복귀
         if (front == size)
         front = 0;
 
+        // dequeue된 값 반환
         return dequeueData;
     }
 
@@ -99,16 +110,33 @@ public class Queue {
     // 즉, 유효한 데이터 출력
     public void printQueue()
     {
+        // front pointer를 기준점으로 삼기 위해 변수 따로 설정
+        // 변수를 따로 안 해주면 전역 front의 값이 바뀜
         int point = front;
+
+        // rear가 front보다 클 때
         if (rear > point)
         {
-            // 무조건 count + 1이어야 도는지 시험해보기
-            for (int i = point; i < count + 1; i++)
+            // count값의 직전까지 돌기 때문에 for문 최대값을 count + 1으로 설정해줌
+            for (int i = point; i < count; i++)
             {
+
                 System.out.println(ar[point]);
                 point++;
             }
         }
+
+        // if (rear == point)
+        // {
+        //     // count값의 직전까지 돌기 때문에 for문 최대값을 count + 1으로 설정해줌
+        //     for (int i = point; i < count + 1; i++)
+        //     {
+                
+        //         System.out.println(ar[point]);
+        //         point++;
+        //     }
+        // }
+
         else
         {
             for (int i = 0; i < count; i++)
