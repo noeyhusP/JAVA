@@ -31,6 +31,11 @@ public class RemoteControlEx {
 
         // default메서드는 구현 객체가 필요한 메서드이므로
         // 구현객체를 인터페이스 변수에 대입한 후에 호출 가능함
+
+        // but, default메서드는 그닥 사용을 권장하지 않음
+
+        // 그리고 private 메서드는 더욱 쓸 일 없음 (회 밑에 까는 천사채 같은 거임)
+        // 있어야 하지만 쓰지 않는 것
         rc.setMute(true);
         rc.setMute(false);
 
