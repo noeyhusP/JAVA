@@ -1,4 +1,4 @@
-package encryption;
+package decryption;
 
 public class Small implements Decode {
     String code;

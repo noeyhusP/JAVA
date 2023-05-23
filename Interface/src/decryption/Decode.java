@@ -1,4 +1,4 @@
-package encryption;
+package decryption;
 
 public interface Decode {
 
