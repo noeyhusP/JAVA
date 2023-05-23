@@ -1,5 +1,7 @@
 package encryption;
 
-public class decode {
-    
+public interface Decode {
+
+    public String decode();
+
 }
