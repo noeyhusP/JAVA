@@ -1,6 +1,6 @@
 package thistisjava;
 
-// 8-2
+// 예제 8-2
 
 public interface RemoteControl {
     // public 추상 메서드

@@ -2,7 +2,7 @@ package thistisjava;
 
 import javax.lang.model.util.ElementScanner14;
 
-// 8-2
+// 예제 8-2
 
 public class Television implements RemoteControl {
     // 필드 선언

@@ -1,5 +1,5 @@
 package thistisjava;
-// 8-2
+// 예제 8-2
 public class RemoteControlEx {
     public static void main(String[] args) {
         // 인터페이스 객체 생성 방법1 

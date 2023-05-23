@@ -1,6 +1,6 @@
 package thistisjava;
 
-// 8-2
+// 예제 8-2
 
 public class Audio implements RemoteControl {
     // 필드 선언
