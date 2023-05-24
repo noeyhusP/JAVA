@@ -3,6 +3,30 @@ package decryption_table_ver;
 public class Decrypter {
     public static final int ALPHA = 26;
 
+    MappingTable mTable;
+
+    // 매핑테이블 객체 만들어줌
+    public Decrypter()
+    {
+        mTable = new MappingTable();
+    }
+
+    // 복호화 메소드 
+    public String decrypter(String encryptedCode)
+    {
+        char ecptChar = 0;
+        String dcptCode = "";
+
+        for (int i = 0; i < encryptedCode.length(); i++)
+        {
+            ecptChar = encryptedCode.charAt(i);
+            // 매핑테이블에서 찾기
+            dcptCode += mTable.decryptCode(ecptChar);
+        }
+
+        return dcptCode;
+    }
+
     private class MappingTable {
         // 대문자 암.복호 배열
         private char[] capEncode;
@@ -55,12 +79,11 @@ public class Decrypter {
         }
 
         
-    public char decrypter(char encChar)
+    public char decryptCode(char encChar)
     {
-        // 성현님 ver
         char decChar = ' ';
-        int index1 = -1;
-        int index2 = -1;
+        int capIndex = -1;
+        int smlIndex = -1;
     
         // 대소문자 판별
         for (int i = 0; i < ALPHA; i++)
@@ -68,28 +91,29 @@ public class Decrypter {
             // 대문자 판별
             if (capEncode[i] == encChar)
             {
-                index1 = i;
+                capIndex= i;
                 break;
             }
             // 소문자 판별
             else if (smlEncode[i] == encChar)
             {
-                index2 = i;
+                smlIndex = i;
                 break;
             }
         }
 
         // 대문자 ver
-        if (index1 != -1)
+        if (capIndex != -1)
         {
-            decChar = capDecode[index1];
+            decChar = capDecode[capIndex];
         }
         // 소문자 ver
-        else if (index2 != -1)
+        else if (smlIndex != -1)
         {
-            decChar = smlDecode[index2];
+            decChar = smlDecode[smlIndex];
         }
         return decChar;
     }
     }
+
 }
