@@ -4,7 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Example {
+public class Example4 {
     public static void main(String[] args) {
         // 역슬래시 \ 가 2개 들어가는 이유 : 
         // 역슬래시 1개 \은 특수문자를 나타낼 때 쓰는 기호이므로
@@ -31,6 +31,9 @@ public class Example {
                 writer.close();
             }
         }
+        // I/O(입출력)에 (disc) 관련된 건 try catch 없이 빌딩할 수 없음
+        // 컴파일 과정 자체에서 에러가 남
+        // 단, throws IOException을 쓰면 빌딩 됨
         catch(IOException e)
         {
             e.printStackTrace();
