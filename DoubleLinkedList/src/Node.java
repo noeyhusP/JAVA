@@ -20,7 +20,6 @@ public class Node
     // 노드 오버로딩 생성자
     public Node (int key, String value)
     {
-        // key = NodeKey++;
         this.key = key;
         this.value = value;
         this.next = null;

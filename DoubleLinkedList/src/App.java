@@ -27,8 +27,16 @@ public class App {
 
         System.out.println("--------");
         
-        lc.deleteNodeByKey(6);
+        lc.deleteNodeByValue("pqr");
         
+        lc.printAllNode();
+
+        System.out.println("--------");
+
+        lc.insertNode(new Node(1,"pqr"), 1);
+        // lc.isExistKey(1);
+        // lc.getNode(0);
+
         lc.printAllNode();
         // System.out.println(lc.getNodebyKey(2).value);
 

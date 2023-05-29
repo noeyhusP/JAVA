@@ -12,42 +12,46 @@ public class ListContainer2 {
     // pos에 nodeCount보다 작거나 큰 수를 넣었을 때
     // 알아서 맨 앞 또는 맨 끝에 붙여주는 것에 대한 대응
 
-    // value값이 같을 때 어떻게 해결할 지
+    // 삭제시 value값이 같을 때 어떻게 해결할 지
     // key값이 겹치면 안 들어가게 하기
     
     // 노드 추가 
     public int insertNode (Node node, int pos)
-    // 1. 노드 맨 앞 삽입
     {
-        // 처음 노드 삽입 (nodeCount 0일때)
-        if (nodeCount == 0)
+        // 키 중복되면 삽입 X
+        int key = node.getKey();
+        if (isExistKey(key) == false)
         {
-            head = node;
-            tail = node;
-            node.next = null;
-            node.prev = null;
-            nodeCount ++; 
-        }
-        // 중간 삽입
-        else 
-        {
-            // !!!!!!!!! 다듬기 !!!!!!!!!!!!!
-            // 삽입할 위치의 노드 구하기
-            Node curNode = getNode(pos);
-            Node curNodeprev = getNode(pos - 1);
-            // 삽입할 위치의 기존 노드 = 다음 노드가 됨
-            node.next = curNode;
-            // 삽입할 위치 기존 노드의 prev node의 next node에 새로운 노드 추가
-            curNodeprev.next = node;
-            // 새로운 노드의 prev node에 기존 노드의 prev node 추가
-            node.prev = curNode.prev;
-            // 새로운 노드의 next node에 기존 노드 추가
-            node.next = curNode;
-            // 삽입할 위치의 기존 노드의 prev node에 새로운 노드 추가
-            curNode.prev = node;
-            // 삽입할 위치에 새로운 노드 추가
-            curNode = node;   
-            nodeCount ++;
+            // 처음 노드 삽입 (nodeCount 0일때)
+            if (nodeCount == 0)
+            {
+                head = node;
+                tail = node;
+                node.next = null;
+                node.prev = null;
+                nodeCount ++; 
+            }
+            // 중간 삽입
+            else 
+            {
+                // !!!!!!!! 다듬기 !!!!!!!!!!!!!
+                // 삽입할 위치의 노드 구하기
+                Node curNode = getNode(pos);
+                Node curNodeprev = getNode(pos - 1);
+                // 삽입할 위치의 기존 노드 = 다음 노드가 됨
+                node.next = curNode;
+                // 삽입할 위치 기존 노드의 prev node의 next node에 새로운 노드 추가
+                curNodeprev.next = node;
+                // 새로운 노드의 prev node에 기존 노드의 prev node 추가
+                node.prev = curNode.prev;
+                // 새로운 노드의 next node에 기존 노드 추가
+                node.next = curNode;
+                // 삽입할 위치의 기존 노드의 prev node에 새로운 노드 추가
+                curNode.prev = node;
+                // 삽입할 위치에 새로운 노드 추가
+                curNode = node;   
+                nodeCount ++;
+            }
         }
         return -1;
     }
@@ -55,6 +59,9 @@ public class ListContainer2 {
     // 맨 앞 삽입
     public boolean insertHeadNode (Node node)
     {
+        // 키 중복되면 삽입 X
+        int key = node.getKey();
+        if (isExistKey(key) == false)
         {
             Node curHead = head;
             // 맨앞에 추가돼야 하므로 next node를 head로 지정
@@ -76,6 +83,9 @@ public class ListContainer2 {
     // 맨 뒤 삽입
     public boolean insertTailNode (Node node)
     {
+        // 키 중복되면 삽입 X
+        int key = node.getKey();
+        if (isExistKey(key) == false)
         // 노드 맨뒤 삽입
         {
             // 기존 tail노드를 구해서 새로운 노드의 prev에 넣어줌
@@ -169,17 +179,17 @@ public class ListContainer2 {
         Node delNode = getNodebyKey(key);
 
         // 노드가 1개인 경우
-        if (nodeCount == 1)
-        {
-            Node deleteNode = head;
-            Node dnNextNode = getNode(1);
-            deleteNode.next = null;
-            head = dnNextNode;
-            nodeCount --;
-        }
+        // if (nodeCount == 1)
+        // {
+        //     Node deleteNode = head;
+        //     Node dnNextNode = getNode(1);
+        //     deleteNode.next = null;
+        //     head = dnNextNode;
+        //     nodeCount --;
+        // }
         
         // 맨 앞 삭제
-        else if (delNode == getNode(0))
+        if (delNode == getNode(0))
         {
             Node deleteNode = head;
             Node dnNextNode = getNode(1);
@@ -215,14 +225,53 @@ public class ListContainer2 {
     }
     
     // 노드 삭제 3 (value로 삭제)
-    public boolean deleteNodeByValue (String Value)
+    public boolean deleteNodeByValue (String value)
     {
+        Node delNode = getNodebyValue(value);
+
         // 노드가 1개인 경우
+        if (nodeCount == 1)
+        {
+            Node deleteNode = head;
+            Node dnNextNode = getNode(1);
+            deleteNode.next = null;
+            head = dnNextNode;
+            nodeCount --;
+        }
+
         // 맨 앞 삭제
+        else if (delNode == getNode(0))
+        {
+            Node deleteNode = head;
+            Node dnNextNode = getNode(1);
+            deleteNode.next = null;
+            head = dnNextNode;
+            nodeCount --;
+        }
         
         // 맨 뒤 삭제
+        else if (delNode == getNode(nodeCount))
+        {
+            Node deleteNode = getNode(nodeCount);
+            Node dnNextNode = getNode(nodeCount - 1);
+            deleteNode.prev = null;
+            tail = dnNextNode;
+            nodeCount --;
+        }
         
         // 중간 삭제 
+        else
+        {
+            Node dnPrevNode = delNode.prev;
+            Node dnNextNode = delNode.next;
+
+            delNode.next = null;
+            delNode.prev = null;
+
+            dnPrevNode.next = dnNextNode;
+            dnNextNode.prev = dnPrevNode;
+            nodeCount --;
+        }
         return true;
     }
     
@@ -247,6 +296,7 @@ public class ListContainer2 {
         return findNode;
     }
     
+    // key로 노드 불러오기
     public Node getNodebyKey (int key)
     {
         Node findNode = head;
@@ -262,6 +312,38 @@ public class ListContainer2 {
             findNode = findNode.next;
         }
         return findNode;
+    }
+
+    // value로 노드 불러오기
+    public Node getNodebyValue (String value)
+    {
+        Node findNode = head;
+        String getValue;
+
+        for (int i = 0; i < nodeCount; i++)
+        {
+            getValue = findNode.getValue();
+            if (getValue == value)
+            {
+                break;
+            }
+            findNode = findNode.next;
+        }
+        return findNode;
+    }
+
+    // key값 중복 확인
+    public boolean isExistKey (int key)
+    {
+        for (int i = 0; i < nodeCount; i++)
+        {
+            Node compareNode = getNode(i);
+            int compareKey = compareNode.getKey();
+            if (compareKey == key)
+            // break; 
+            return true;        
+        }
+        return false;
     }
     
     // getters & setters
