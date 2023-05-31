@@ -8,6 +8,9 @@ public class ListContainer2 {
     private Node tail;  // 끝노드
     private int nodeCount; // 노드 개수
 
+    private double deleteCorrectKey = 3.14;
+    private double deleteContainKey = 3.15;
+
     // 구현할 때 유의할 포인트
     // pos에 nodeCount보다 작거나 큰 수를 넣었을 때
     // 알아서 맨 앞 또는 맨 끝에 붙여주는 것에 대한 대응
@@ -23,13 +26,17 @@ public class ListContainer2 {
         if (isExistKey(key) == false)
         {
             // 처음 노드 삽입 (nodeCount 0일때)
-            if (nodeCount == 0)
+            if (nodeCount <= 0)
             {
                 head = node;
                 tail = node;
                 node.next = null;
                 node.prev = null;
                 nodeCount ++; 
+            }
+            else if (pos < nodeCount)
+            {
+                insertTailNode(node);
             }
             // 중간 삽입
             else 
@@ -225,8 +232,9 @@ public class ListContainer2 {
     }
     
     // 노드 삭제 3 (value로 삭제)
-    public boolean deleteNodeByValue (String value)
+    public boolean deleteNodeByValue (String value, boolean alikeValue)
     {
+
         Node delNode = getNodebyValue(value);
 
         // 노드가 1개인 경우
@@ -344,6 +352,104 @@ public class ListContainer2 {
             return true;        
         }
         return false;
+    }
+
+    // 1. "ab"인 노드를 찾는다 (pos로 전부)
+    // 2. 해당 노드를 한 번에 지운다
+    // 방법 1. 찾은 노드의 key값을 일정한 값으로 변경 후 deleteNodebyKey로 일괄 삭제
+    // 방법 2. 
+    
+    // value alike 함수로 value값 포함조건에 따라 삭제시키기
+    // true면 value가 겹치면 다 삭제 / false면 똑같은 것만 삭제
+    public boolean alikeValue (String value, boolean alike)
+    {
+        double compareNodeKey = 0.0;
+        if (alike == true)
+        {
+            for (int i = 0; i < nodeCount; i++)
+            {
+                Node compareNode = getNode(i);
+                if (value.equals(compareNode.value))
+                {
+                    compareNodeKey = (double)compareNode.getKey();
+                    compareNodeKey = deleteCorrectKey;
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < nodeCount; i++)
+            {
+                Node compareNode = getNode(i);
+                if (value.contains(compareNode.value))
+                {
+                    compareNodeKey = (double)compareNode.getKey();
+                    compareNodeKey = deleteContainKey;
+                }
+            }
+        }
+        return deleteNodeByDKey(compareNodeKey);
+    }
+
+    // value alike 노드 가져오기 (key로 삭제)
+    // public Node getNodebyDKey (double key)
+    // {
+    //     Node findNode = head;
+    //     double getKey;
+
+    //     for (int i = 0; i < nodeCount; i++)
+    //     {
+    //         getKey = findNode.getKey();
+    //         if (getKey == key)
+    //         {
+    //             break;
+    //         }
+    //         findNode = findNode.next;
+    //     }
+    //     return findNode;
+    // }
+
+    // value범위 노드 삭제 (double key로 삭제)
+    // chat gpt 참고함
+    public boolean deleteNodeByDKey (double key)
+    {
+        boolean deleted = false;
+        Node currentNode = head;
+
+        while (currentNode != null) {
+            if (Double.valueOf(currentNode.getKey()) == key) {
+                // 현재 노드가 삭제 대상인 경우
+    
+                // 이전 노드와 다음 노드의 연결 조정
+                Node prevNode = currentNode.prev;
+                Node nextNode = currentNode.next;
+    
+                if (prevNode != null) {
+                    prevNode.next = nextNode;
+                } else {
+                    // 삭제 대상이 첫 번째 노드인 경우
+                    head = nextNode;
+                }
+    
+                if (nextNode != null) {
+                    nextNode.prev = prevNode;
+                } else {
+                    // 삭제 대상이 마지막 노드인 경우
+                    tail = prevNode;
+                }
+    
+                // 현재 노드 삭제
+                currentNode.prev = null;
+                currentNode.next = null;
+    
+                nodeCount--;
+                deleted = true;
+            }
+    
+            currentNode = currentNode.next;
+        }
+    
+        return deleted;
     }
     
     // getters & setters
