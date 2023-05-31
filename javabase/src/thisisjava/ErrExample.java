@@ -1,5 +1,5 @@
 package thisisjava;
-
+// 이것이자바다 p530
 public class ErrExample {
     public static void main(String[] args) {
         try

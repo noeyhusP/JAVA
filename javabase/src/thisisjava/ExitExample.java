@@ -1,5 +1,5 @@
 package thisisjava;
-
+// 이것이자바다 p534
 public class ExitExample {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++)

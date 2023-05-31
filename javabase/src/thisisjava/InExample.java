@@ -1,5 +1,5 @@
 package thisisjava;
-
+// 이것이자바다 p532
 public class InExample {
     public static void main(String[] args) throws Exception {
         int speed = 0;
