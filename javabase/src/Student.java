@@ -7,11 +7,24 @@
 // 즉, 비즈니스로직에 맞춰서 짜기 = getter, setter과 같은 맥락
 // 4. toString() 오버라이딩 > JSON형식이 기본
 // code generator가 형식을 잘 지키기 때문에 사용하고 다듬길 권장
+// 5. Option : 객체를 복사할 일이 많은 경우 Clone()을 만들어주면 좋다.
+// 단, Clone의 주의사항 > 
 
-public class Student {
+public class Student implements Cloneable {
     private String name;    // 이름
     private int num;        // 학번
+    private int[] score;    // 성적
 
+    
+    @Override
+    public String toString() {
+        return "{" +
+        " name='" + getName() + "'" +
+        ", num='" + getNum() + "'" +
+        ", " + this.score[0] + " " + this.score[1] + " " + this.score[2] + " "
+        + "}";
+    }
+    
     // object  clone() 기능 해보기
     
     // 기본 생성자
@@ -74,6 +87,23 @@ public class Student {
         this.num = num;
     }
 
+    public int[] getScore() {
+        return this.score;
+    }
+
+    public void setScore(int[] score) {
+        this.score = score;
+    }
+
+    // setScore 오버라이딩
+    @Override
+    public void setScore(int s0, int s1, int s2) {
+        this.score[0] = s0;
+        this.score[1] = s1;
+        this.score[2] = s2;
+    }
+    
+    
     // hash code 오버라이딩 예
     @Override
     public int hashCode()
@@ -81,12 +111,7 @@ public class Student {
         return (super.hashCode() + num);
     }
 
-    // toString 오버라이딩 예
-    @Override
-    public String toString()
-    {
-        return "abc";
-    }
+    
 
     // 오버라이딩이 없으면 string을 찍었을 때 참조값이 찍힘
     // 객체의 toString을 호출하기 때문
@@ -103,4 +128,23 @@ public class Student {
     //         "}";
     // }
     // json 형태로 구별해 toString을 만드는 것이 일반적임
+
+    
+    @Override
+    public Object clone() throws CloneNotSupportedException
+    {
+        // 깊은 복사로 만들기
+        // 기존 객체를 clone해온 후 새로운 객체에 넣어줌
+        Student newObject =(Student)super.clone();
+        newObject.score = new int [3];
+        // 메모리 새로 할당
+        newObject.score[0] = this.score[0];
+        newObject.score[1] = this.score[1];
+        newObject.score[2] = this.score[2];
+        // 그 새로운 객체를 리턴
+        return newObject;
+
+        // (기존의 방식) 얕은 복사로 만들기
+        // return (Object)super.clone();
+    } 
 }

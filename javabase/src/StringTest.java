@@ -88,4 +88,32 @@ public class StringTest {
 
         System.out.println(now.getClass());
     }
+
+    public static void CloneTest()
+    {
+        Student stu1 = new Student("jsh", 1);
+
+        stu1.setScore(new int[]{80, 90, 100});
+        Student stu2 = null;
+
+        try
+        {
+            stu2 = (Student)stu1.clone();
+
+        }
+        catch (CloneNotSupportedException e)
+        {
+            e.printStackTrace();
+        }
+        // clone의 return type이 object이므로 (Student) 형변환해줌
+        // 근데 public이 아니라 protected object이므로 오류가 남
+        // 따라서 재정의 필요
+
+        System.out.println(stu1);
+        // stu1 성적 바꾸기
+        stu1.setScore(new int[]{20, 20, 20});
+        System.out.println(stu1);
+        System.out.println(stu2);
+        // clone은 deep copy를 지원하지 않고 얕은 복사를 지원하기 때문
+    }
 }

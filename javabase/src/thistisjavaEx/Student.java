@@ -2,7 +2,7 @@ package thistisjavaEx;
 
 public class Student {
     private String studentNum;
-    
+
     public void setStudentNum(String studentNum) {
         this.studentNum = studentNum;
     }
