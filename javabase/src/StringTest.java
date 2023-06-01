@@ -20,10 +20,10 @@ public class StringTest {
 
     public static void stBuilder()
     {
-    //     String data = new StringBuilder().append("DEF").toString();
-            // 임시변수를 응용한 것
+        // String data = new StringBuilder().append("DEF").toString();
+        // 임시변수를 응용한 것
 
-    //     System.out.println(data);
+        // System.out.println(data);
 
         // 현업에서 이렇게 쓰지는 않음
 

@@ -6,7 +6,7 @@
 // 6. clone()
 
 // x,y좌표를 저장하기 위한 클래스
-public class Point {
+public class Point implements Cloneable {
     private int xPos;       // x좌표
     private int yPos;       // y좌표
 

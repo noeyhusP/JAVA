@@ -95,8 +95,7 @@ public class Student implements Cloneable {
         this.score = score;
     }
 
-    // setScore 오버라이딩
-    @Override
+    // setScore ver2
     public void setScore(int s0, int s1, int s2) {
         this.score[0] = s0;
         this.score[1] = s1;
