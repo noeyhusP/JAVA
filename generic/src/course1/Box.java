@@ -1,7 +1,5 @@
 package course1;
 
-import javax.swing.SizeRequirements;
-
 // <T>라는 임의의 데이터 타입을 클래스명에 함께 표기해주어야 함
 // T를 type parameter, template parameter 라고 함
 // Box<T>클래스
@@ -10,6 +8,9 @@ import javax.swing.SizeRequirements;
 
 // <T extends Eatable> 해주는 것은 상속을 의미하는 것이 아니라 
 // : 제한을 거는 것 (Eatable이라는 인터페이스를 구현한 클래스만 올 수 있도록)
+
+// public class Box<T extends Number & Eatable> 
+// T extends Number & Eatable => Number을 상속 받으면서 Eatable 인터페이스로도 제한되는
 public class Box<T extends Eatable> {
     // 간단화 develop 1
     // Object로 만들기
@@ -70,4 +71,9 @@ public class Box<T extends Eatable> {
         // eat()메서드가 오버라이팅 된 클래스만 가능하게 됨
         fruit.eat();
     }
+
+    // public int getIntValue()
+    // {
+    //     return fruit.intValue();
+    // }
 }

@@ -1,17 +1,22 @@
 package course2;
 
-import course1.Dbox;
-
 public class App {
     public static void main(String[] args) {
-        // left : int, right : string 넣기
-        // ex) 1, apple, 2, banana
+        // plants eatable : orange, apple
+        // mushroom은 해당 x
 
-        // primitive타입이 올 수 없기 때문에 non-primitive type으로 넣어줘야 함(Integer)
-        Dbox<Integer, String> dBox= new Dbox<Integer, String>();
+        Box<Orange> orange = new Box<Orange>();
+        Box<Apple> apple = new Box<Apple>();
+        
+        orange.set(new Orange());
+        apple.set(new Apple());
+        // Box<Mushroom> mushroom = new Box<Mushroom>();
+        // 생성 불가
 
-        dBox.set(1,"apple");
+        System.out.println(orange);
+        System.out.println(apple);
 
-        System.out.println(dBox);
+        orange.eatPlant();
+        apple.eatPlant();
     }
 }

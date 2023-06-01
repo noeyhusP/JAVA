@@ -12,5 +12,17 @@ public class EatableApp {
 
         // 이렇게 제한을 걸면 소스코딩을 좀 더 자유롭게 할 수 있음
         // 아무 object나 올 수 없기 때문
+
+        // Box<Integer> iBox = new Box<>();
+        // iBox.set(100);
+        // System.out.println(iBox.getIntValue());
+
+        // Box<Double> dBox = new Box<>();
+        // dBox.set(30.34);
+        // System.out.println(dBox.getIntValue());
+        // // int값만 리턴해줌
+
+        // Box<Apple> aBox = new Box<>();
+        // 파라미터가 number가 아니므로 불가능함
     }
 }
