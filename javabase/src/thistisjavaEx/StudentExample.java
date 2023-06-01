@@ -13,7 +13,7 @@ public class StudentExample {
         // stu2.setStudentNum(str);
 
         // System.out.println(stu1.hashCode());
-        // System.out.println(stu1.hashCode());
+        // System.out.println(stu2.hashCode());
 
         // hashCode 오버라이딩에서
         // 방법 1을 써야하는 이유
