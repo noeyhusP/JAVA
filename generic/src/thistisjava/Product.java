@@ -1,5 +1,8 @@
 package thistisjava;
 
+// 이것이 자바다 
+// 13장 generic p590
+
 public class Product<K, M> {
     private K kind;
     private M model;

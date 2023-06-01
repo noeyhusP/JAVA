@@ -1,6 +1,12 @@
 package course2;
 
-public class Orange  extends Plants implements Eatable {
+public class Orange extends Plants implements Eatable {
+
+    public Orange()
+    {
+
+    } 
+
     @Override
     public void eat()
     {

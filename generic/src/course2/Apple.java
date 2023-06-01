@@ -1,6 +1,12 @@
 package course2;
 
 public class Apple extends Plants implements Eatable {
+
+    public Apple()
+    {
+
+    } 
+
     @Override
     public void eat()
     {
