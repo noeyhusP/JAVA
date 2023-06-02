@@ -1,0 +1,14 @@
+package thistisjava;
+
+public class UtilExample {
+    public static void main(String[] args) {
+        Pair<String, Integer> pair = new Pair<>("홍길동", 35);
+        Integer age = Util.getValue(pair, "홍길동");
+        System.out.println(age);
+
+        ChildPair<String, Integer> ChildPair = new ChildPair<>("홍삼원", 20);
+        Integer childAge = Util.getValue(ChildPair, "홍삼순");
+        System.out.println(childAge);
+
+    }
+}

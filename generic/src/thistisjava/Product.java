@@ -4,9 +4,12 @@ package thistisjava;
 // 13장 generic p590
 
 public class Product<K, M> {
+    // 타입 파라미터 K, M을 필드 타입으로 사용
     private K kind;
     private M model;
 
+    // 타입 파라미터를 리턴 타입과 매개변수 타입으로
+    // 사용한 메소드 작성
     public K getKind()
     {
         return this.kind;

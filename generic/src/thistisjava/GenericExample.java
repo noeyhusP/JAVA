@@ -18,6 +18,8 @@ public class GenericExample {
         TV tv = product1.getKind();
         String tvModel = product1.getModel();
 
+        // System.out.println(tv, tvModel);
+
         // -------------------------------------------------- //
 
         // K는 Car로 대체, M은 String으로 대체
