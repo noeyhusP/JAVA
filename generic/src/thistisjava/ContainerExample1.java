@@ -9,5 +9,7 @@ public class ContainerExample1 {
         Container1<Integer> container2 = new Container1<Integer>();
         container2.set(6);
         int value = container2.get();
+
+        System.out.println("이름 : " + str + ", 나이 : " + value);
     }
 }

@@ -12,6 +12,7 @@ public class ContainerExample2 {
         String name2 = container2.getKey();
         int age = container2.getValue();
 
-        System.out.println(container1);
+        System.out.println("name : " + name1 + ", job : " + job);
+        System.out.printf("name : " + name2 + ", age : %d", age);
     }
 }
