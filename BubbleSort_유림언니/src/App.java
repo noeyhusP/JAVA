@@ -69,14 +69,16 @@ public class App {
             }
             else
             {
+                // 작은 for문 한 바퀴 다 돌고 나면 큰 for문을 다 돌기 전엔 boolean값을 false로 바꿔주고 다시 돌게 함
                 // 스왑변수 초기화.
                 bSwaped = false;
 
             }
-            
+            // count 줄여주기
             count--;
         }
-
+        // sort할 요소의 개수가 2개가 남았을 땐 if문이 성립 안 하므로 true아 아닌 false를 유지한 채 내려오고
+        // 아래 if 문에서 false로 걸려 return true를 반환하고 끝남
         return true;
     }
 
