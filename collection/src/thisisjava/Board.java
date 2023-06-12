@@ -1,5 +1,7 @@
 package thisisjava;
 
+// 이것이 자바다 ch15 p657
+
 public class Board {
     private String subject;
     private String content;

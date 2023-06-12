@@ -1,5 +1,7 @@
 package thisisjava;
 
+// 이것이 자바다 ch15 p660
+
 import java.util.Vector;
 import java.util.List;
 

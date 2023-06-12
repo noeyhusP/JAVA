@@ -1,5 +1,7 @@
 package thisisjava;
 
+// 이것이 자바다 ch15 p663
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;

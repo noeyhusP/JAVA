@@ -1,5 +1,7 @@
 package thisisjava;
 
+// 이것이 자바다 ch15 p658
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class ArrayListExample {
         System.out.println(board.getSubject() + "\t" + board.getContent() + "\t" + board.getWriter());
         System.out.println();
 
-        // 모든 객체를 하나씩 가져오기
+        // for문으로 모든 객체를 하나씩 가져오기
         for (int i = 0; i < list.size(); i++)
         {
             Board b = list.get(i);
